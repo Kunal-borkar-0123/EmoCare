@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="depression.css">
+  <title>HackHolyoke</title>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<h2>Anxiety Survey</h2>
+
+<h3 id="question">How often have you felt worried, anxious, or irritated?</h3>
+<button class="reply" value="select" onclick="add1()">
+<p id="answer1" >Not at all</p>
+</button>
+<button class="reply" value="select" onclick="add2()">
+<p id="answer2">Sometimes</p>
+</button>
+<button class="reply" value="select" onclick="add3()">
+<p id="answer3" >Occasionally</p>
+</button>
+<button class="reply" value="select" onclick="add4()">
+<p id="answer4" >Frequently</p>
+</button>
+<button class="reply" value="select" onclick="add5()">
+<p id="answer5" >All the time</p>
+</button>
+<p hidden id="result"></p>
+
+<script>
+var score = 0;
+const questions = [
+  {
+    question: 'How often have you felt worried, anxious, or irritated?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you felt tense, fatigued, startled, restless, and on-edge?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you felt fear?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you had difficulty going to sleep, staying asleep, or waking up?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you had trouble concentrating or remembering?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you felt tired, depressed, and too bothered to do anything?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you felt pains, aches, or felt that your body wasn’t listening to you?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you experienced ringing in your ears, blurred vision, hot/cold flashes, or feelings of weakness?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you felt palpitations, chest pain, feeling faint, or irregular heartbeats?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you had trouble breathing, pressure on your chest, and feeling of choking?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you had trouble with digestion, eating, keeping a stable weight, and bowel movements?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you had trouble with urination, menstrual periods, or sexual activity?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often have you experienced dry mouth, cold sweats, headaches, and dizziness?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  },
+  {
+    question: 'How often do you fidget, pace, or have difficulty breathing normally?',
+    choice1: 'Not at all',
+    choice2: 'Sometimes', 
+    choice3: 'Occasionally',
+    choice4: 'Frequently',
+    choice5: 'All the time',
+  }
+];
+
+i = 0;
+function increment(){
+  i ++;
+}
+
+function seeScore(){
+      if(i == questions.length-1) {
+        localStorage.setItem('mostRecentScore', score)
+        location.replace("anxietyEnd.html")
+    }
+}
+
+function add1() {
+  score +=0;
+  document.getElementById("result").innerHTML = +score;
+  increment();
+  document.getElementById("question").innerHTML = questions[i].question;
+  document.getElementById("answer1").innerHTML = questions[i].choice1;
+  document.getElementById("answer2").innerHTML = questions[i].choice2;
+  document.getElementById("answer3").innerHTML = questions[i].choice3;
+  document.getElementById("answer4").innerHTML = questions[i].choice4;
+  document.getElementById("answer5").innerHTML = questions[i].choice5;
+  seeScore();
+}
+
+function add2() {
+  score +=1;
+  document.getElementById("result").innerHTML = +score;
+  increment();
+  document.getElementById("question").innerHTML = questions[i].question;
+  document.getElementById("answer1").innerHTML = questions[i].choice1;
+  document.getElementById("answer2").innerHTML = questions[i].choice2;
+  document.getElementById("answer3").innerHTML = questions[i].choice3;
+  document.getElementById("answer4").innerHTML = questions[i].choice4;
+  document.getElementById("answer5").innerHTML = questions[i].choice5;
+  seeScore();
+}
+
+function add3() {
+  score +=2;
+  document.getElementById("result").innerHTML = +score;
+  increment();
+  document.getElementById("question").innerHTML = questions[i].question;
+  document.getElementById("answer1").innerHTML = questions[i].choice1;
+  document.getElementById("answer2").innerHTML = questions[i].choice2;
+  document.getElementById("answer3").innerHTML = questions[i].choice3;
+  document.getElementById("answer4").innerHTML = questions[i].choice4;
+  document.getElementById("answer5").innerHTML = questions[i].choice5;
+  seeScore();
+}
+
+function add4() {
+  score +=3;
+  document.getElementById("result").innerHTML = +score;
+  increment();
+  document.getElementById("question").innerHTML = questions[i].question;
+  document.getElementById("answer1").innerHTML = questions[i].choice1;
+  document.getElementById("answer2").innerHTML = questions[i].choice2;
+  document.getElementById("answer3").innerHTML = questions[i].choice3;
+  document.getElementById("answer4").innerHTML = questions[i].choice4;
+  document.getElementById("answer5").innerHTML = questions[i].choice5;
+  seeScore();
+}
+
+function add5() {
+  score +=4;
+  document.getElementById("result").innerHTML = +score;
+  increment();
+  document.getElementById("question").innerHTML = questions[i].question;
+  document.getElementById("answer1").innerHTML = questions[i].choice1;
+  document.getElementById("answer2").innerHTML = questions[i].choice2;
+  document.getElementById("answer3").innerHTML = questions[i].choice3;
+  document.getElementById("answer4").innerHTML = questions[i].choice4;
+  document.getElementById("answer5").innerHTML = questions[i].choice5;
+  seeScore();
+}
+
+</script>
+
+<section>
+  <nav>
+      <ul>
+        
+      </ul>
+  </nav>
+</section>
+
+</body>
+</html>
